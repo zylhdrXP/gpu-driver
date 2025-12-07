@@ -157,6 +157,8 @@ After completing these steps:
 
 This work includes references and assets provided by:
 
+- **Adarsh Grewal** - Source for the vendor tree used as the base reference.
+  https://github.com/adarshgrewal
 - **My Selly** – Documentation and reference material.
   https://github.com/MySelly
 - **zurauciha** – GPU driver source (Adreno 819), originally extracted from a Magisk module.
