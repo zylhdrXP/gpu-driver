@@ -143,6 +143,31 @@ If runtime issues occur:
 ```bash
 logcat | grep -Ei "EGL|Adreno|Vulkan|hwcomposer"
 ```
+# Notes: Disabling Soong Filesystem Generator (fsgen)
+
+Some ROM build environments use Soong filesystem generator (fsgen) to validate
+vendor blobs and automatically generate partition images (system, vendor, odm,
+etc.). When a device tree contains duplicate or conflicting files, fsgen may
+produce errors and stop the build.
+
+To disable fsgen globally and avoid these issues, add the following override:
+
+```bp
+soong_filesystem_creator {
+    name: "soong_filesystem_creator",
+    enabled: false,
+}
+```
+
+Place this block inside a custom Soong namespace, for example:
+
+```
+build/soong/fsgen/Android.bp
+```
+
+This disables fsgen entirely, preventing strict validation and stopping the
+generation of auto-produced filesystem images. This approach allows ROM builds
+to proceed even when vendor blobs contain duplicate or incomplete entries.
 
 ## Status
 
