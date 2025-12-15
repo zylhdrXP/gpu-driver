@@ -93,6 +93,20 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.hardware.vulkan.version-1_4.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_4.xml \
     vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.software.opengles.deqp.level.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
     vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.software.vulkan.deqp.level.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
+
+vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \
+    vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.software.tuning-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.tuning-1.xml \
+    vendor/xiaomi/garnet/proprietary/vendor/lib/libCB.so:$(TARGET_COPY_OUT_VENDOR)/lib/libCB.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib/libgpudataproducer.so:$(TARGET_COPY_OUT_VENDOR)/lib/libgpudataproducer.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib/libkernelmanager.so:$(TARGET_COPY_OUT_VENDOR)/lib/libkernelmanager.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so:$(TARGET_COPY_OUT_VENDOR)/lib/egl/libVkLayer_ADRENO_qprofiler.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib/hw/vulkan.adreno.so.tango:$(TARGET_COPY_OUT_VENDOR)/lib/hw/vulkan.adreno.so.tango \
+    vendor/xiaomi/garnet/proprietary/vendor/lib64/libCB.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libCB.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib64/libgame_enhance.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgame_enhance.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib64/libgamepoweroptfeature.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgamepoweroptfeature.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib64/libgpudataproducer.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgpudataproducer.so \
+    vendor/xiaomi/garnet/proprietary/vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so:$(TARGET_COPY_OUT_VENDOR)/lib64/egl/libVkLayer_ADRENO_qprofiler.so
 ```
 
 ## 5. Allow ELF Files in `PRODUCT_COPY_FILES`
@@ -113,6 +127,12 @@ To keep extraction consistent, add the new GPU blobs:
 vendor/lib/libadreno_compiler_cl.so
 vendor/lib/libdmabufheap.so
 vendor/lib/hw/vulkan.adreno.so
+vendor/lib/libCB.so
+vendor/lib/libgpudataproducer.so
+vendor/lib/libkernelmanager.so
+vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so
+vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so
+vendor/lib/hw/vulkan.adreno.so.tango
 vendor/lib64/gpu++.so
 vendor/lib64/libdmabufheap.so
 vendor/lib64/libgpumemtracer.so
@@ -122,12 +142,19 @@ vendor/lib64/vendor.qti.hardware.display.mapper@4.0.so
 vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.1.so
 vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.2.so
 vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.3.so
+vendor/lib64/libCB.so
+vendor/lib64/libgame_enhance.so
+vendor/lib64/libgamepoweroptfeature.so
+vendor/lib64/libgpudataproducer.so
+vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so
 vendor/lib64/egl/libPipeline_plugin.so
 vendor/etc/permissions/android.hardware.vulkan.version-1_1.xml
 vendor/etc/permissions/android.hardware.vulkan.version-1_3.xml
 vendor/etc/permissions/android.hardware.vulkan.version-1_4.xml
 vendor/etc/permissions/android.software.opengles.deqp.level.xml
 vendor/etc/permissions/android.software.vulkan.deqp.level.xml
+vendor/etc/permissions/android.hardware.vulkan.compute-0.xml
+vendor/etc/permissions/android.software.tuning-1.xml
 ```
 
 ## 7. Build the ROM
