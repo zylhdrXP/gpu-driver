@@ -17,7 +17,6 @@ vendor/
   lib/
   lib64/
   etc/
-  firmware/
 ```
 
 These blobs will replace or extend the existing GPU drivers in the garnet vendor tree.
@@ -47,7 +46,6 @@ Copy the new GPU driver blobs:
 cp -a ../../../../gpu-driver/vendor/lib/*      vendor/lib/
 cp -a ../../../../gpu-driver/vendor/lib64/*    vendor/lib64/
 cp -a ../../../../gpu-driver/vendor/etc/*      vendor/etc/
-cp -a ../../../../gpu-driver/vendor/firmware/* vendor/firmware/
 ```
 
 ## 3. Update `Android.bp` (Vendor Folder)
@@ -75,18 +73,9 @@ Add new GPU files to `PRODUCT_COPY_FILES` (only if they are not already present)
 
 ```makefile
 PRODUCT_COPY_FILES += \
-    vendor/xiaomi/garnet/proprietary/vendor/lib/libadreno_compiler_cl.so:$(TARGET_COPY_OUT_VENDOR)/lib/libadreno_compiler_cl.so \
     vendor/xiaomi/garnet/proprietary/vendor/lib/libdmabufheap.so:$(TARGET_COPY_OUT_VENDOR)/lib/libdmabufheap.so \
     vendor/xiaomi/garnet/proprietary/vendor/lib/hw/vulkan.adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib/hw/vulkan.adreno.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/gpu++.so:$(TARGET_COPY_OUT_VENDOR)/lib64/gpu++.so \
     vendor/xiaomi/garnet/proprietary/vendor/lib64/libdmabufheap.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libdmabufheap.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/libgpumemtracer.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgpumemtracer.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/libgpuservice.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgpuservice.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/vendor.qti.hardware.display.mapper@3.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.display.mapper@3.0.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/vendor.qti.hardware.display.mapper@4.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.display.mapper@4.0.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.1.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.display.mapperextensions@1.1.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.2.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.display.mapperextensions@1.2.so \
-    vendor/xiaomi/garnet/proprietary/vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.3.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.display.mapperextensions@1.3.so \
     vendor/xiaomi/garnet/proprietary/vendor/lib64/egl/libPipeline_plugin.so:$(TARGET_COPY_OUT_VENDOR)/lib64/egl/libPipeline_plugin.so \
     vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_1.xml \
     vendor/xiaomi/garnet/proprietary/vendor/etc/permissions/android.hardware.vulkan.version-1_3.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_3.xml \
@@ -123,7 +112,6 @@ This bypasses Soong’s ELF prebuilt restriction for vendor blobs.
 To keep extraction consistent, add the new GPU blobs:
 
 ```
-vendor/lib/libadreno_compiler_cl.so
 vendor/lib/libdmabufheap.so
 vendor/lib/hw/vulkan.adreno.so
 vendor/lib/libCB.so
@@ -132,15 +120,7 @@ vendor/lib/libkernelmanager.so
 vendor/lib/egl/libVkLayer_ADRENO_qprofiler.so
 vendor/lib/hw/android.hardware.graphics.mapper@4.0-impl-qti-display.so
 vendor/lib/hw/vulkan.adreno.so.tango
-vendor/lib64/gpu++.so
 vendor/lib64/libdmabufheap.so
-vendor/lib64/libgpumemtracer.so
-vendor/lib64/libgpuservice.so
-vendor/lib64/vendor.qti.hardware.display.mapper@3.0.so
-vendor/lib64/vendor.qti.hardware.display.mapper@4.0.so
-vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.1.so
-vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.2.so
-vendor/lib64/vendor.qti.hardware.display.mapperextensions@1.3.so
 vendor/lib64/libCB.so
 vendor/lib64/libgame_enhance.so
 vendor/lib64/libgamepoweroptfeature.so
